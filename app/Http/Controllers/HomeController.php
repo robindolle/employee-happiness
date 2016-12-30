@@ -26,6 +26,6 @@ class HomeController extends Controller
     {
         Vote::create($request->all());
 
-        return redirect('/');
+        return redirect('/')->with('flash_message', 'Your vote was successfully submitted.');
     }
 }
