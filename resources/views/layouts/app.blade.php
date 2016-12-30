@@ -8,16 +8,19 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', '') }}</title>
 
     <!-- Bootstrap -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+
     <!-- Styles -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet" >
 
-    <!-- Font Awesome -->
-    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Scripts -->
     <script>
@@ -91,8 +94,6 @@
         @yield('content')
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Scripts -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>
