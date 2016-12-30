@@ -11,13 +11,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="/css/style.css" rel="stylesheet" >
+    <link href="{{asset('css/style.css')}}" rel="stylesheet" >
 
     <!-- Font Awesome -->
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -91,7 +91,9 @@
         @yield('content')
     </div>
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
 </body>
 </html>

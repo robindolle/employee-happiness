@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Vote;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -23,6 +24,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        $votes = Vote::all();
+        return view('pages.dashboard', compact('votes'));
     }
 }
