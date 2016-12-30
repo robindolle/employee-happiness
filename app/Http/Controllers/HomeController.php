@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VoteRequest;
 use App\Vote;
 use Illuminate\Http\Request;
 
@@ -18,10 +19,10 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param VoteRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VoteRequest $request)
     {
         Vote::create($request->all());
 
