@@ -24,7 +24,7 @@ class VoteRequest extends FormRequest
     public function rules()
     {
         return [
-            'vote' => 'required|in:smile,meh,frown'
+            'vote_type_id' => 'required'
         ];
     }
 
@@ -36,7 +36,7 @@ class VoteRequest extends FormRequest
     public function messages()
     {
         return [
-            'vote.required' => 'You need to select your current mood.'
+            'vote_type_id.required' => 'You need to select your current mood.'
         ];
     }
 }

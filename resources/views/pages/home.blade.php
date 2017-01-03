@@ -28,18 +28,12 @@
                 <div class="panel-body">
                     {!! Form::open(['url' => '/']) !!}
                         <div class="form-group" data-toggle="buttons">
-                            <label class="btn btn-success btn-lg">
-                                {!! Form::radio('vote', 'smile') !!}
-                                <i class="fa fa-smile-o" aria-hidden="true"></i>
-                            </label>
-                            <label class="btn btn-warning btn-lg">
-                                {!! Form::radio('vote', 'meh') !!}
-                                <i class="fa fa-meh-o" aria-hidden="true"></i>
-                            </label>
-                            <label class="btn btn-danger btn-lg">
-                                {!! Form::radio('vote', 'frown') !!}
-                                <i class="fa fa-frown-o" aria-hidden="true"></i>
-                            </label>
+                            @foreach($vote_types as $vote_type)
+                                <label class="btn btn-{{ $vote_type->color }} btn-lg">
+                                    {!! Form::radio('vote_type_id', $vote_type->id) !!}
+                                    <i class="fa {{ $vote_type->icon }}" aria-hidden="true"></i>
+                                </label>
+                            @endforeach
                         </div>
                         <div class="form-group">
                             {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}

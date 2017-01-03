@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\VoteRequest;
 use App\Vote;
-use Illuminate\Http\Request;
+use App\VoteType;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -13,18 +14,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.home');
+        $vote_types = VoteType::all();
+        return view('pages.home', compact('vote_types'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param VoteRequest|Request $request
+     * @param VoteRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(VoteRequest $request)
     {
-        Vote::create($request->all());
+        $vote = new Vote($request->all());
+        $vote->created_at = Carbon::now();
+        $vote->save();
 
         return redirect('/')->with('flash_message', 'Your vote was successfully submitted.');
     }

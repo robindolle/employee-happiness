@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVotesTable extends Migration
+class AddVoteTypeIdToVoteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateVotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('votes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->enum('vote', ['smile', 'meh', 'frown']);
-            $table->timestamp('created_at')->nullable();
+        Schema::table('votes', function (Blueprint $table) {
+            $table->integer('vote_type_id')->unsigned()->after('id');
+            $table->dropColumn('vote');
         });
     }
 
@@ -27,6 +26,8 @@ class CreateVotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('votes');
+        Schema::table('votes', function (Blueprint $table) {
+            $table->dropColumn('vote_type_id');
+        });
     }
 }
