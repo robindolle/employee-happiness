@@ -12,14 +12,31 @@ body {
     transition: all 0.3s;
 }
 
-.btn.btn-lg {
-    margin-right: 10px;
+.btn.btn-round {
+    margin-right: 15px;
     padding: 8px;
     border-radius: 40px;
     height: 80px;
     width: 80px;
 }
 
+.btn.btn-submit {
+    margin-top: 20px;
+}
+
 .btn.btn-lg .fa {
     font-size: 58px;
+}
+
+.tab-pane {
+    padding-top: 20px;
+}
+
+.progress {
+    height: 20px;
+}
+
+.progress .progress-bar {
+    font-size: 12px;
+    line-height: 20px;
 }

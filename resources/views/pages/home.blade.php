@@ -7,7 +7,7 @@
             @if(Session::has('flash_message'))
                 <div class="alert alert-dismissible alert-success">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    {{ Session::get('flash_message') }}
+                    <p class="text-center">{{ Session::get('flash_message') }}</p>
                 </div>
                 <script>
                     $('div.alert').delay(3000).fadeOut('slow');
@@ -16,31 +16,29 @@
             @if($errors->any())
                 <div class="alert alert-dismissible alert-danger">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                    <p class="text-center">{{ $errors->first() }}</p>
                 </div>
             @endif
-            <div class="panel panel-default">
-                <div class="panel-heading">How was your day?</div>
-                <div class="panel-body">
-                    {!! Form::open(['url' => '/']) !!}
-                        <div class="form-group" data-toggle="buttons">
-                            @foreach($vote_types as $vote_type)
-                                <label class="btn btn-{{ $vote_type->color }} btn-lg">
-                                    {!! Form::radio('vote_type_id', $vote_type->id) !!}
-                                    <i class="fa {{ $vote_type->icon }}" aria-hidden="true"></i>
-                                </label>
-                            @endforeach
-                        </div>
-                        <div class="form-group">
-                            {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-                        </div>
-                    {!! Form::close() !!}
+
+            <div class="text-center">
+                <div class="page-header">
+                    <h1>How was your day?</h1>
                 </div>
+                {!! Form::open(['url' => '/']) !!}
+                    <div class="form-group" data-toggle="buttons">
+                        @foreach($vote_types as $vote_type)
+                            <label class="btn btn-{{ $vote_type->color }} btn-lg btn-round">
+                                {!! Form::radio('vote_type_id', $vote_type->id) !!}
+                                <i class="fa {{ $vote_type->icon }}" aria-hidden="true"></i>
+                            </label>
+                        @endforeach
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Submit', ['class' => 'btn btn-primary btn-lg btn-submit']) !!}
+                    </div>
+                {!! Form::close() !!}
             </div>
+
         </div>
     </div>
 </div>
