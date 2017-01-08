@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Vote;
 use App\VoteType;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
